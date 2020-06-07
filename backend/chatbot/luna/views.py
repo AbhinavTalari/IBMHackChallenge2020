@@ -4,5 +4,8 @@ from django.http import HttpResponse
 def SayHello(request):
     return HttpResponse('<h1>Hello Bitches</h1> ')
 
-def render_index(request):
+def render_home(request):
     return render(request,'luna/index.html')
+
+def render_botpage(request):
+    return render(request,'luna/botpage.html')
