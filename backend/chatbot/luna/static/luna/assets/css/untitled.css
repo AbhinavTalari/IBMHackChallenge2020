@@ -7,16 +7,12 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-}
 
 button, input {
   border-radius: 20px;
   border-color: rgb(64,241,124);
 }
 
-p {
-}
 
 .btn:not(:disabled):not(.disabled) {
   border-radius: 20px;
@@ -28,9 +24,5 @@ p {
 
 .btn:not(:disabled):not(.disabled) {
   margin-top: 10px;
-}
-
-.row {
-  padding-bottom: -;
 }
 
