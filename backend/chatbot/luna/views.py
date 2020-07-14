@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
 from django.template.context import RequestContext
@@ -16,6 +16,7 @@ def render_home(request):
     return render(request,'luna/index.html')
 
 def render_botpage(request):
+    logout(request)
     return render(request,'luna/greet.html')
 
 
@@ -39,7 +40,7 @@ def render_login(request):
         'state': state   })
     return render('luna/login.html',{},context)
 
-
+@login_required
 def render_welcome(request):
     return render(request,'luna/profile.html')    
 
@@ -57,6 +58,7 @@ def render_signup(request):
         form=UserRegisterForm()
     return render(request,'luna/signup.html',{'form':form})
 
+@login_required
 def render_upload(request):
     if request.method=='POST':
         uploaded_file=request.FILES['document']
@@ -69,11 +71,12 @@ def render_upload(request):
         
         res_mobile=parser.extract_mobile_number(parsed_text)
         res_ed=parser.extract_education(parsed_text)
-        ax=''
+        
         edus={
              'BE':'Bachelors in Engineering',
              'B.E.':'Bachelors in Engineering', 
-             'B.E':'Bachelors in Engineering', 
+             'B.E.':'Bachelors in Engineering', 
+             'BE':'Bachelors in Engineering',
              'BS':'Bachelors in Science', 
              'B.S':'Bachelor in Science', 
              'ME':'Masters in Engineering',
@@ -93,19 +96,27 @@ def render_upload(request):
              'XII':'XII'
         }
        
-        ax+=edus[res_ed[0][0]]+' '+'Graduated in '+res_ed[0][1]
+        aux_ed=''
+        for x in res_ed:
+            if edus[x] is not None:
+                aux_ed+=' '+ edus[x]
         aux_skills=''
         for x in res_skills:
             aux_skills+=' | '+x
         aux_skills+=' |'
+        aux_exp=' '
+        
         res_exp=parser.extract_experience(parsed_text)
+        for x in res_exp:
+            aux_exp+=' '+x
         messages.success(request,'Resume Uploaded')
         context={
             'name':res_name,
             'email':res_email,
             'skills':aux_skills,
-            'education':ax,
+            'education':aux_ed,
             'mobile':res_mobile,
+            'experience':aux_exp,
         }
         
         return render(request,'luna/profile.html',context)
@@ -113,9 +124,11 @@ def render_upload(request):
         
     return render(request,'luna/upload.html')
         
-
-
-        
+def render_logout(request):
+    logout(request)
+    return render(request,'luna/greet.html')
+    
+    
 
 
 

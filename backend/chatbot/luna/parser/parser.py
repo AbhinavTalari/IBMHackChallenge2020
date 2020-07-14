@@ -7,6 +7,7 @@ import io
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords 
 import nltk
+from . import constants as cs
 
 def extract_text_from_pdf(pdf_path):
     with open(pdf_path, 'rb') as fh:
@@ -185,7 +186,6 @@ def extract_education(resume_text):
     nlp_text = [sent.string.strip() for sent in nlp_text.sents]
 
     edu = {}
-    
     # Extract education degree
     for index, text in enumerate(nlp_text):
         for tex in text.split():
@@ -193,7 +193,6 @@ def extract_education(resume_text):
             tex = re.sub(r'[?|$|.|!|,]', r'', tex)
             if tex.upper() in EDUCATION and tex not in STOPWORDS:
                 edu[tex] = text + nlp_text[index + 1]
-    
 
     # Extract year
     education = []
@@ -204,9 +203,6 @@ def extract_education(resume_text):
         else:
             education.append(key)
     return education
-
-
-# edus=extract_education(text)
 
 
 def extract_experience(resume_text):
@@ -241,14 +237,3 @@ def extract_experience(resume_text):
     # Search the word 'experience' in the chunk and then print out the text after it
     x = [x[x.lower().index('experience') + 10:] for i, x in enumerate(test) if x and 'experience' in x.lower()]
     return x
-# experience=extract_experience(text)
-
-# Details={
-#     'name':name,
-#     'email':email,
-#     'skills':skilss,
-#     'education':edus,
-#     'exp':experience
-# }
-
-# print(Details)

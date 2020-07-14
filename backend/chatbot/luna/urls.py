@@ -9,7 +9,7 @@ urlpatterns = [
     path('botpage/',views.render_botpage,name='luna-bot-welcome'),
     path('botpage/login/',auth_views.LoginView.as_view(template_name='luna/login.html'),name='luna-bot-login'),
     path('botpage/signup/',views.render_signup,name='luna-bot-signup'),
-    path('botpage/logout/',auth_views.LogoutView.as_view(template_name='luna/logout.html'),name='luna-bot-logout'),
+    path('botpage/logout/',views.render_logout,name='logout'),
     path('botpage/welcome',views.render_welcome,name='profile'),
     path('botpage/upload',views.render_upload,name='upload'),
    

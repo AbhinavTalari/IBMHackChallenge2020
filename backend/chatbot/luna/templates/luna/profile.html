@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{% static "luna/assets/css/untitled.css"%}">
 </head>
 
-<body style="background-image: url('{% static "luna/assets/img/Black-Background-Picture.png"%}');">
+<body style="background-image: url('{% static "luna/assets/img/Black-Background-Picture.png"%}'); font-family:'Aldrich'">
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color: rgb(0,0,0);">
         <div class="container"><a class="navbar-brand" href="#" style="font-family: Aldrich, sans-serif;color: rgb(40,224,136);">Hello {{ user.username }}</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
@@ -29,7 +29,7 @@
                 <ul class="nav navbar-nav mr-auto">
                 <a class="btn btn-light action-button" role="button" href="upload">Update Details</a>
                   <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="font-family: Aldrich, sans-serif;color: rgb(255,255,255);">Chatbot</a></li>
-                </ul><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="#">Logout</a></span></div>
+                </ul><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="logout">Logout</a></span></div>
         </div>
     </nav>
     <div class="features-boxed" style="background-color: rgb(0,0,0);">
@@ -46,7 +46,7 @@
                 </div> {% endcomment %}
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box" style="background-color: rgb(0,0,0);"><i class="fa fa-user icon"></i>
-                        <h3 class="name" style="font-family: Aldrich, sans-serif;">preffered position</h3>
+                        <h3 class="name" style="font-family: Aldrich, sans-serif;">experience </h3>
                         <p class="description">{{experience}}</p><a class="learn-more" href="#">Learn more »</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
@@ -63,12 +63,12 @@
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box" style="background-color: rgb(0,0,0);"><i class="fa fa-envelope-o icon"></i>
                         <h3 class="name">social handles</h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a></div>
+                        <p class="description">{{ email }}</p><a class="learn-more" href="#">Learn more »</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box" style="background-color: rgb(0,0,0);"><i class="fa fa-phone icon"></i>
                         <h3 class="name">mobile number</h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a></div>
+                        <p class="description">{{mobile}}</p><a class="learn-more" href="#">Learn more »</a></div>
                 </div>
             </div>
         </div>
