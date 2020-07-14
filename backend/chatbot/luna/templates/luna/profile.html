@@ -27,8 +27,8 @@
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="font-family: Aldrich, sans-serif;color: rgb(255,255,255);">Update Details</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="font-family: Aldrich, sans-serif;color: rgb(255,255,255);">Chatbot</a></li>
+                <a class="btn btn-light action-button" role="button" href="upload">Update Details</a>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="font-family: Aldrich, sans-serif;color: rgb(255,255,255);">Chatbot</a></li>
                 </ul><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="#">Logout</a></span></div>
         </div>
     </nav>
@@ -39,25 +39,26 @@
                 <p class="text-center" style="font-size: 20px;">Looking at your resume we have the following insights for you</p>
             </div>
             <div class="row justify-content-center features">
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                {% comment %} <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box" style="background-color: rgb(0,0,0);"><i class="fa fa-map-marker icon"></i>
                         <h3 class="name" style="font-family: Aldrich, sans-serif;">Preferred location</h3>
                         <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a></div>
-                </div>
+                </div> {% endcomment %}
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box" style="background-color: rgb(0,0,0);"><i class="fa fa-user icon"></i>
                         <h3 class="name" style="font-family: Aldrich, sans-serif;">preffered position</h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a></div>
+                        <p class="description">{{experience}}</p><a class="learn-more" href="#">Learn more »</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box" style="background-color: rgb(0,0,0);"><i class="fa fa-graduation-cap icon"></i>
-                        <h3 class="name">alma mater</h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a></div>
+                        <h3 class="name">Education</h3>
+
+                        <p class="description">{{education }}.</p><a class="learn-more" href="#">Learn more »</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box" style="background-color: rgb(0,0,0);"><i class="fa fa-flag icon"></i>
-                        <h3 class="name">achievements</h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a class="learn-more" href="#">Learn more »</a></div>
+                        <h3 class="name">Skills</h3>
+                        <p class="description">{{skills}}</p><a class="learn-more" href="#">Learn more »</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box" style="background-color: rgb(0,0,0);"><i class="fa fa-envelope-o icon"></i>
